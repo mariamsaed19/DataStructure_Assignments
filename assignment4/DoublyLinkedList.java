@@ -1,4 +1,4 @@
-package list;
+package eg.edu.alexu.csd.datastructure.linkedList.cs76_cs88;
 
 public class DoublyLinkedList implements ILinkedList{
 	private int size ;
@@ -24,7 +24,7 @@ public class DoublyLinkedList implements ILinkedList{
 		* @param element
 		*/
 		public void add(int index, Object element) {
-			if(index<=size) {
+			if(index-1<=size) {
 			Dlinked_Node a = new Dlinked_Node(element);
 			Dlinked_Node curr = head ;
 			if(size==0) {
@@ -35,7 +35,7 @@ public class DoublyLinkedList implements ILinkedList{
 				a.next=tail;
 				return;
 			}
-			for(int i = 1;i<=index&&curr!=tail;i++) {
+			for(int i= 1;i<=index&&curr!=tail;i++) {
 				curr = curr.next;
 			}
 			size++;
@@ -66,6 +66,9 @@ public class DoublyLinkedList implements ILinkedList{
 		* @return the element at the specified position in this list.
 		*/
 		public Object get(int index) {
+			if(index>size) {
+				return null;
+			}
 			Dlinked_Node curr = head ;
 			for(int i = 1;i<=index&&curr!=tail;i++) {
 				curr = curr.next;
@@ -135,6 +138,9 @@ public class DoublyLinkedList implements ILinkedList{
 		public ILinkedList sublist(int fromIndex, int toIndex) {
 		//get initial index
 		ILinkedList sub = new DoublyLinkedList();
+		if(fromIndex<0||toIndex>size) {
+			throw null;
+		}
 		Dlinked_Node curr = head ;
 		for(int i=0 ;i<fromIndex;i++) {
 			curr=curr.next;
@@ -176,14 +182,22 @@ public class DoublyLinkedList implements ILinkedList{
 
 	public static void main(String[] args) {
 		DoublyLinkedList list = new DoublyLinkedList();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
+		 
+		 int first = 1;
+		 int second = 2;
+		 int third = 3;
+		 int fourth = 4;
+		 int fifth = 5;
+		
+		list.add(first,first);
+		list.add(second,second);
+		list.add(third,third);
+		list.add(fourth,fourth);
+		list.add(fifth,fifth);
 		list.printList();
-		//System.out.println(list.sublist(3, 5));
+		list.remove(first);
+		list.printList();
+		System.out.println(list.size);
 		
 		
 	}
