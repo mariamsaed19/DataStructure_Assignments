@@ -26,12 +26,18 @@ class AppTest {
 		String str1 ="-5+-*6+5",
 				str2="5+*9",
 				str3="5---9+3/2",
-				str4="8*9/2-";
+				str4="8*9/2-",
+				str5="3A   + 9	*2",
+				str6="ds ds+89/2",
+				str7="a5+9-8/2";
+				
 		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str1));
 		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str2));
 		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str3));
 		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str4));
-		
+		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str5));
+		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str6));
+		Assertions.assertThrows(RuntimeException.class,()->x.infixToPostfix(str7));
 	}
 	@Test
 	/**
