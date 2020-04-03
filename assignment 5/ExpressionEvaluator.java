@@ -210,7 +210,21 @@ public void checkValid(String exp,int z) {
 			if(i+2<exp.length()&&IsSign(exp.charAt(i))&&exp.charAt(i+1)=='-'&&IsSign(exp.charAt(i+2))) {
 				flag=1;
 				break;
-				
+			}
+			//mix of digits and character e.g 356a
+			if(Character.isDigit(exp.charAt(i))&&Character.isLetter(exp.charAt(i+1))){
+				flag=1;
+				break;
+			}
+			//mix of digits and letters e.g sds8
+			if(Character.isDigit(exp.charAt(i+1))&&Character.isLetter(exp.charAt(i))){
+				flag=1;
+				break;
+			}
+			//mix of letters e.g dfd
+			if(Character.isLetter(exp.charAt(i))&&Character.isLetter(exp.charAt(i+1))){
+				flag=1;
+				break;
 			}
 			
 	
