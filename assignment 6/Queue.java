@@ -1,4 +1,5 @@
 package eg.edu.alexu.csd.datastructure.queue;
+
 import java.util.NoSuchElementException;
 
 public class Queue implements IQueue,ILinkedBased {
